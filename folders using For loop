@@ -1,0 +1,27 @@
+$i=1
+for($i; $i -le 10;)
+{
+$filename = "Das"+$i
+New-Item -Path $filename -ItemType directory
+$filetext = "object"+$i+".txt"
+New-Item -Path $filetext -ItemType File
+cd c:\power\$filename
+for($j=1;$j -le 10;){
+$filename1 = "Darshan"+$j
+New-Item -Path $filename1 -ItemType directory
+$objectname = "object"+$j+".txt"
+New-Item -Path $objectname -ItemType File
+cd C:\power\$filename\$filename1
+for($k=1;$k -le 10;$k++){
+$objectname2 = "object"+$k+".txt"
+New-Item -Path $objectname2 -ItemType File
+Remove-Item C:\power\$filename\$filename1\$objectname2
+cd c:\power\$filename\$filename1
+}
+Remove-Item c:\power\$filename\$objectname
+cd C:\power\$filename
+$j=$j+1
+}
+cd C:\power
+$i=$i+1
+}
